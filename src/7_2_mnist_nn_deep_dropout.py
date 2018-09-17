@@ -94,12 +94,12 @@ with tf.Session() as sess:
 
         for i in range(total_batch):
             batch_xs, batch_ys = mnist.train.next_batch(batch_size)
-            # '''
+            '''
             feed_dict = {X: batch_xs, Y: batch_ys}
+            '''
             # '''
-            '''
             feed_dict = {X: batch_xs, Y: batch_ys, keep_prob: 0.7}
-            '''
+            # '''
             c, _ = sess.run([cost, optimizer], feed_dict=feed_dict)
             avg_cost += c / total_batch
 
@@ -108,25 +108,25 @@ with tf.Session() as sess:
     print("Learning finished")
 
     # Test the model using test sets
-    # '''
+    '''
     print("Accuracy: ", accuracy.eval(session=sess, feed_dict={
         X: mnist.test.images, Y: mnist.test.labels}))
-    # '''
     '''
+    # '''
     print("Accuracy: ", accuracy.eval(session=sess, feed_dict={
         X: mnist.test.images, Y: mnist.test.labels, keep_prob: 1}))
-    '''
+    # '''
     # Get one and predict
     r = random.randint(0, mnist.test.num_examples - 1)
     print("Label: ", sess.run(tf.argmax(mnist.test.labels[r:r + 1], 1)))
-    # '''
+    '''
     print("Prediction: ", sess.run(
         tf.argmax(hypothesis, 1), feed_dict={X: mnist.test.images[r:r + 1]}))
-    # '''
     '''
+    # '''
     print("Prediction: ", sess.run(
         tf.argmax(hypothesis, 1), feed_dict={X: mnist.test.images[r:r + 1], keep_prob: 1}))
-    '''
+    # '''
     for index, pixel in enumerate(mnist.test.images[r]):
         if index % 28 == 0:
             print('\n')

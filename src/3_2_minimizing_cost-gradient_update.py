@@ -25,19 +25,19 @@ gradient = tf.reduce_mean((W * X - Y) * X)
 descent = W - learning_rate * gradient
 update = W.assign(descent)
 
-##
+'''
 # 위 부분을 매번 미분할 필요 없이 아래와 같이 간략히 쓸수 있음.
-# optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1)
-# update = optimizer.minimize(cost)
-##
+optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1)
+update = optimizer.minimize(cost)
+'''
 
-##
+'''
 # tensorflow가 주는 gradient에서, 값을 변경하고 싶을때,
-# optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1)
-# gvs = optimizer.compute_gradients(cost)   # get gradients
+optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1)
+gvs = optimizer.compute_gradients(cost)   # get gradients
 # 수정하고 싶다면 여기서 수정
-# update = optimizer.apply_gradients(gvs)  #apply gradients
-##
+update = optimizer.apply_gradients(gvs)  #apply gradients
+'''
 
 # Launch the graph in a session.
 sess = tf.Session()

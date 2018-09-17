@@ -15,8 +15,7 @@ X = tf.placeholder(tf.float32, [None, 784])
 # 0 - 9 digits recognition = 10 classes
 Y = tf.placeholder(tf.float32, [None, nb_classes])
 
-'''
-# using softmax
+'''# using softmax
 W = tf.Variable(tf.random_normal([784, nb_classes]))
 b = tf.Variable(tf.random_normal([nb_classes]))
 

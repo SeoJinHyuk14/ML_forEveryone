@@ -29,3 +29,6 @@
   * 5 depth를 이용한 학습 -> 97.72% 정확도 (overfitting으로 인한 정확도 낮아짐)
   * dropout을 이용한 Deep Neural Network -> 98.39% 정확도
 * CNN을 이용한 학습 -> 99.33% 정확도
+
+### 참조
+> CNN : http://bcho.tistory.com/1149
